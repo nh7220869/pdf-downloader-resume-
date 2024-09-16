@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic CV Builder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Dynamic Resume Builder</h1>
+        <form id="resume-form">
+            <!-- Input for uploading the profile picture before personal information -->
+            <label for="profile-pic">Profile Picture:</label>
+            <input type="file" id="profile-pic" name="profile-pic" accept="image/*">
+            
+            <!-- Personal Information -->
+            <h2>Personal Information</h2>
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+            <!-- Education -->
+            <h2>Education</h2>
+            <textarea id="education" name="education" rows="3" placeholder="Enter your education details" required></textarea>
+
+            <!-- Work Experience -->
+            <h2>Work Experience</h2>
+            <textarea id="work-experience" name="work-experience" rows="4" placeholder="Enter your work experience" required></textarea>
+
+            <!-- Skills -->
+            <h2>Skills</h2>
+            <textarea id="skills" name="skills" rows="2" placeholder="Enter your skills" required></textarea>
+
+            <button type="submit" class="submit-btn">Create Resume</button>
+        </form>
+
+        <div id="resume-output" style="display: none;">
+            <h2><b>Resume</b></h2>
+            <!-- Display uploaded image -->
+            <img id="profile-pic-output" alt="Profile Picture" height="150" width="150"> <br>
+            
+            <button class="edit-btn" data-section="image"><label for="image-upload" class="edit-image-button">Edit Image</label>
+                <input type="file" id="image-upload" name="image-upload" accept="image/*" style="display: none;"></button>
+
+            <h2>Personal Information</h2>
+            <p><b>Name:</b> <span id="name-output"></span> 
+                <button class="edit-btn" data-section="name">Edit</button></p>
+            <p><b>Email:</b> <span id="email-output"></span>
+                <button class="edit-btn" data-section="email">Edit</button></p>
+            <p><b>Phone:</b> <span id="phone-output"></span>
+                <button class="edit-btn" data-section="phone">Edit</button></p>
+
+            <h2>Education</h2>
+            <p id="education-list"></p>
+            <button class="edit-btn" data-section="education">Edit</button>
+
+            <h2>Work Experience</h2>
+            <p id="work-experience-list"></p>
+            <button class="edit-btn" data-section="work-experience">Edit</button>
+
+            <h2>Skills</h2>
+            <p id="skills-list"></p>
+            <button class="edit-btn" data-section="skills">Edit</button>
+
+            <!-- New buttons for copy link and download PDF -->
+            <button id="copy-link-btn">Copy Link</button>
+            <button id="download-pdf-btn">Download Resume PDF</button>
+        </div>
+    </div>
+    
+    <script src="index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</body>
+</html>
